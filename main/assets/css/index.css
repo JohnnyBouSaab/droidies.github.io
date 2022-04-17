@@ -1,0 +1,422 @@
+
+@font-face {
+    font-family: 'origin_tech';
+    src: url('../fonts/OriginTech.ttf') format('truetype');
+}
+
+.navbar-brand {
+  font-family: 'origin_tech', 'sans-serif;';
+  color: #2b343d !important;
+  text-transform: uppercase;
+  margin-right:  0;
+}
+
+
+/* Bigger/Desktop */
+@media (min-width: 768px) {
+  .nav-social svg {
+    width:  62px;
+    padding-right:  25px;
+  }
+  .connected-info svg {
+    width: 25px;
+    padding-right: 0;
+  }
+  .connected-info .arrow {
+    width: 12px;
+    padding-bottom: 1px;
+  }
+  .connected-info .btn {
+    font-size: 1.1rem;
+  }
+  .navbar-brand {
+    font-size: 37px;
+    padding-left: 25px;
+  }
+  .navbar-brand, .nav-social{
+    width: 200px;
+    margin-top: 25px;
+  }
+  #nav {
+    /*margin-top:  6px;*/
+  }
+  .nav-mid img {
+    width:  60px;
+  }
+  .search-droidy {
+    font-size: 1.8rem;
+    width:  40%;
+  }
+  #foundDroidy table {
+    font-size:0.9rem;
+  }
+  #foundDroidy figcaption {
+    font-size: 0.9rem;
+  }
+}
+
+/* Smaller */
+@media (max-width: 768px) {
+  .navbar-brand, .nav-social{
+    width: 150px;
+    margin-top: 15px;
+  }
+  .nav-social svg {
+    width:  40px;
+    padding-right: 10px;
+  }
+  .connected-info svg {
+    width: 22px;
+    padding-right: 0;
+  }
+  .connected-info .arrow {
+    width: 10px;
+    padding-bottom: 1px;
+  }
+  .connected-info .btn {
+    font-size: 0.8rem;
+  }
+  .navbar-brand {
+    font-size: 30px;
+    padding-left: 10px;
+  }
+  #nav {
+    /*margin-top:  4px;*/
+  }
+  .nav-mid img {
+    width:  80px;
+  }
+  .search-droidy {
+    font-size: 1.5rem;
+    width: 40%;
+  }
+  #foundDroidy table {
+    font-size: 0.7rem;
+  }
+  #foundDroidy figcaption {
+    font-size: 0.7rem;
+  }
+  .info-section .outer-row {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .navbar-brand, .nav-social{
+    width: 120px;
+    margin-top: 10px;
+  }
+  .nav-social svg {
+    width:  27px;
+    padding-right: 5px;
+  }
+  .connected-info svg {
+    width: 18px;
+    padding-right: 0;
+  }
+  .connected-info .arrow {
+    width: 8px;
+    pdding-bottom: 0.8px;
+  }
+  .connected-info .btn {
+    font-size: 0.65rem;
+  }
+  .navbar-brand {
+    font-size: 22px;
+    padding-left: 0px;
+  }
+  #nav {
+    margin-top:  2px;
+  }
+  .nav-mid img {
+    width:  60px;
+  }
+  .search-droidy {
+    font-size: 1.1rem;
+    width: 40%;
+  }
+  #foundDroidy table {
+    font-size: 0.5rem;
+  }
+  #foundDroidy figcaption {
+    font-size: 0.5rem;
+  }
+  #chooseWalletModal button {
+    width:  100px !important;
+  }
+  .info-section .outer-row {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+  background:  #f4c891;
+}
+
+.nav-social svg {
+  color: #2b343d;
+  height:  auto;
+}
+
+.nav-social {
+  line-height: 100%;
+  text-align: center;
+}
+
+.nav-social svg:hover {
+  color: #e9edf5;
+}
+
+.nav-mid {
+
+}
+
+.search-droidy {
+  text-align: center;
+  font-weight:  bolder;
+  /*font-family: Futura;*/
+}
+
+.search-droidy button {
+  margin-top: 10px;
+  background:  #2b343d;
+  color: #e9edf5;
+  font-family: 'origin_tech', 'sans-serif';
+}
+
+.search-droidy button:hover {
+  background:  #e9edf5;
+  color:  #2b343d;
+}
+
+.search-droidy input:focus {
+  border-color: #2b343d;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px #2b343d;
+}
+
+.search-droidy .alert {
+  font-size: 0.5em;
+}
+.mint-body .alert {
+  font-size: 1em;
+}
+
+
+.navbar, .navbar-brand {
+  text-align: center;
+  line-height: 100%;
+}
+
+.mint-body img {
+  width:  300px;
+}
+
+.mint-body {
+  font-family: Helvetica;
+  text-align:  center;
+}
+
+#chooseWalletModal {
+  text-align: center;
+}
+#chooseWalletModal .modal-header {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+#chooseWalletModal .modal-body {
+  padding-bottom:  35px;
+}
+#chooseWalletModal .modal-content {
+  color: #2b343d;
+}
+
+#chooseWalletModal button {
+  width:  150px;
+  color:  #e9edf5;
+  background: #2b343d;
+  font-family: Helvetica;
+}
+
+#connectWalletButton:hover, #chooseWalletModal button:hover, #mintButton:hover {
+  color:  #2b343d;
+  background:  #e9edf5;
+}
+#connectWalletButton {
+  color:  #e9edf5;
+  background: #2b343d;
+  border-radius: 40px;
+  padding: 10px;
+  width:  220px;
+  font-size: 1.2rem;
+}
+
+#mintButton {
+  width:  100px;
+  color:  #e9edf5;
+  background: #2b343d;
+}
+
+button:focus {
+  border-color: #2b343d !important;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px #2b343d !important;
+}
+
+/* Found Droidy Modal */
+
+#foundDroidy table {
+  /*background:  #2b343d;
+  color:  #e9edf5;*/
+  text-align: center;
+}
+
+.loader {
+  border: 5px solid #e9edf5; 
+  border-top: 5px solid #2b343d; 
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.add, .sub {
+  /*all: unset;*/
+  background: none; border: none;
+  cursor: pointer;
+  text-align: center;
+  line-height: 100%;
+  vertical-align: middle;
+  margin-left:  10px;
+  margin-right:  10px;
+}
+
+.add:focus, .sub:focus, .add:active, .sub:active {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.add svg, .sub svg {
+  width:  20px;
+  height:  100%;
+}
+
+.add, .sub {
+  color:  #2b343d;
+}
+.add:hover, .sub:hover{
+  color: #e9edf5;
+}
+.add:disabled, .sub:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.minted {
+  font-size: 1.8rem;
+  font-family: Helvetica;
+}
+
+.connected-info {
+  text-align: center;
+  line-height: 100%;
+  vertical-align: middle;
+  font-family: Helvetica;
+}
+.connected-info svg {
+  color: #2b343d;
+  height:  auto;
+}
+.connected-info .btn {
+  padding: 0;
+  font-weight: bold;
+  color: #2b343d;
+}
+#userInfo:hover svg {
+  color: #e9edf5;
+}
+
+.dropdown-menu {
+  right: 0;
+  left: auto;
+  font-size: 0.9rem;
+}
+.dropdown-item:active {
+  background: #2b343d;
+  color: white;
+}
+.dropdown-item .name {
+  font-weight: 600;
+}
+
+#logout {
+  padding-left: 20px;
+}
+
+#droidies-owned .row {
+  text-align: center;
+  margin-right: 0;
+  margin-left: 0;
+}
+#droidies-owned figcaption {
+  font-weight: 400;
+}
+#droidies-owned .modal-content {
+  /*background: #2b343d;
+  color: white;*/
+}
+
+.info-section {
+  text-align: center;
+  margin-top: 100px;
+  font-family: Helvetica;
+}
+.info-section h3 {
+  font-family: 'origin_tech';
+}
+.info-section figcaption {
+  font-size: 0.7rem;
+  margin-left: auto;
+}
+.team-avatar {
+  padding: 0;
+}
+.info-section .info-text {
+  display: flex;
+  align-items: center;
+  /*justify-content: center;*/
+}
+
+#threeD_in_modal:focus, #my-3:focus {
+  border-color: #2b343d !important;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px #2b343d !important;
+}
+
+#threeD_in_modal, #my-3 {
+  color: #e9edf5;
+  background: #2b343d;
+}
+#threeD_in_modal:hover, #my-3:hover {
+  color: #2b343d;
+  background: #e9edf5;
+}
+
+#my-3 {
+  font-size: 1.2em;
+  padding: 17px;
+  border-radius: 40px;
+  width: 200px;
+}
