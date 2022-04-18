@@ -500,7 +500,7 @@ function addVipElements() {
   const gl = new GLTFLoader(loadManager);
 
   // desk
-  ld.load('./assets/resources/desk/Computer Desk.fbx', function(obj) {
+  ld.load('./assets/resources/desk/Computer Desk.FBX', function(obj) {
     let put = false, put1=false, put2=false;
     obj.traverse(function(child){
       // if(child.isMesh) {child.castShadow=true;child.receiveShadow=true}
