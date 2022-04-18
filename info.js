@@ -2,7 +2,8 @@
 const TOTAL_SUPPLY = 2222;
 
 const BASE_IMAGES_URL = 'https://ipfs.io/ipfs/QmPWtZvZyzrm9tZ5UyJH7aCL2DGfQ3PCTCC2kwD5P6AW6B/';
-const BASE_INFO_URL = 'https://ipfs.io/ipfs/QmUA3rbhf8qLCvNsHjTa1u31EXHHuBqHT1zBb1XfvjUXKJ/';
+// const BASE_INFO_URL = 'https://ipfs.io/ipfs/QmUA3rbhf8qLCvNsHjTa1u31EXHHuBqHT1zBb1XfvjUXKJ/';
+const BASE_INFO_URL = '../../rarities/'
 
 const IMAGES_URL = BASE_IMAGES_URL;
 const METADATA_URL = BASE_INFO_URL;
