@@ -500,7 +500,7 @@ function addVipElements() {
   const gl = new GLTFLoader(loadManager);
 
   // desk
-  ld.load('./assets/resources/desk/Computer Desk.FBX', function(obj) {
+  ld.load('./assets/resources/desk/Computer Desk.fbx', function(obj) {
     let put = false, put1=false, put2=false;
     obj.traverse(function(child){
       // if(child.isMesh) {child.castShadow=true;child.receiveShadow=true}
@@ -520,7 +520,7 @@ function addVipElements() {
   });
 
   // chair
-  ld.load('./assets/resources/chair/chair.FBX', function(obj) {
+  ld.load('./assets/resources/chair/chair.fbx', function(obj) {
     obj.traverse(function(child) {
       if(child.isMesh) {
         // child.castShadow = true; child.receiveShadow = true;
@@ -533,7 +533,7 @@ function addVipElements() {
   });
 
   // table elements
-  ld.load('./assets/resources/misc/cup.FBX', function(obj) {
+  ld.load('./assets/resources/misc/cup.fbx', function(obj) {
     obj.traverse(function(child) {
       if(child.isMesh) {
         // child.castShadow=true;child.receiveShadow=true;
@@ -544,7 +544,7 @@ function addVipElements() {
     obj.position.set(5,7.7,-135); 
     scene.add(obj);
   });
-  ld.load('./assets/resources/misc/lavalamp.FBX', function(obj) {
+  ld.load('./assets/resources/misc/lavalamp.fbx', function(obj) {
     obj.scale.set(0.2,0.2,0.2); 
     obj.position.set(-7,8.2,-135); 
     scene.add(obj);
