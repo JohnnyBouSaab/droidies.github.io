@@ -10,7 +10,7 @@ const METADATA_URL = BASE_INFO_URL;
 const RARITY_DATA_URL = BASE_INFO_URL;
 
 // CHAIN and CONTRACT INFO
-const CHAIN = 'local'; // testnet, main
+const CHAIN = 'testnet'; // testnet, main
 const CONTRACT_NAME = 'DROID';
 const TOKEN_SYMBOL = 'DROID';
 const PRICE_IN_SOUL = 5;
