@@ -683,14 +683,15 @@ function loadArt() {
 
   let ADDRESS = getAddress(); 
   if(ADDRESS && ADDRESS != '') {
-    let URL = RPC_URL + 'api/getTokenBalance?account=' + ADDRESS + '&tokenSymbol=' + TOKEN_SYMBOL + '&chainInput=main';
+    // let URL = RPC_URL + 'api/getTokenBalance?account=' + ADDRESS + '&tokenSymbol=' + TOKEN_SYMBOL + '&chainInput=main';
+    let URL = 'https://droidies-api.herokuapp.com/balance?chain=' + CHAIN + '&address='  + ADDRESS;
     fetch(URL).then(response => {
       if(response.ok) {
         response.json().then(data => {
-          if(data && data['amount'] > 0) {
+          if(data && data['balance'] > 0) {
 
-            let DROIDIES_NUM = data['amount']; // number of owned droidies
-            let DROIDIES = data['ids']; // IDs of owned droidies
+            let DROIDIES_NUM = data['balance']; // number of owned droidies
+            let DROIDIES = data['droidies']; // IDs of owned droidies
             let num = DROIDIES_NUM < MAX+MAX_VIP ? DROIDIES_NUM : MAX+MAX_VIP;
             if(num < MAX) {
               for(var i = num; i < MAX; i++) {
@@ -712,12 +713,14 @@ function loadArt() {
             for(var i = 0; i < num; i++) {
               let posIdx = i;
               let droidID = DROIDIES[i]; 
-              URL = RPC_URL + 'api/getNFT?symbol=' + TOKEN_SYMBOL + '&IDtext=' + droidID;
+              // URL = RPC_URL + 'api/getNFT?symbol=' + TOKEN_SYMBOL + '&IDtext=' + droidID;
+              URL = 'https://droidies-api.herokuapp.com/getDroidy?chain=' + CHAIN + '&id='  + droidID;
               fetch(URL).then(response => {
                 if(response.ok) {
                   response.json().then(data => {
-                    let rom = data['rom']; let dec = phantasmaJS.phantasmaJS.decodeVMObject(rom);
-                    let droid_idx = dec['idx'];
+                    // let rom = data['rom']; let dec = phantasmaJS.phantasmaJS.decodeVMObject(rom);
+                    // let droid_idx = dec['idx'];
+                    let droid_idx = data['idx'];
                     if(posIdx < MAX) { 
                       createArt(positionsZZ[posIdx], sides[posIdx], IMAGES_URL+droid_idx+'.png', posIdx, 'Droidy #'+droid_idx);
                     }
@@ -734,7 +737,7 @@ function loadArt() {
             }
           } else if(data && data['error']) {  // INVALID ADDRESS GIVEN 
             loading(true, 'Invalid Phantasma address', true, true);
-          } else if(data['amount'] == 0) {  // user has 0 droidies
+          } else if(data['balance'] == 0) {  // user has 0 droidies
             addWelcomeSign('Empty Gallery :(');
             for(var i = 0; i < MAX; i++) {
               loadedArt[i] = true;

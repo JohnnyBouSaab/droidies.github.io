@@ -246,10 +246,10 @@ function updateUserInfo() {
 			link.account.balances.forEach(entry => {
 				if(entry['symbol'] == 'SOUL') {
 					SOUL_BALANCE = parseInt(entry['value']) / SOUL_DECIMALS;
-					$("#userInfo span[name=balance]").text(SOUL_BALANCE);
 				} 
 			});
 		}
+		$("#userInfo span[name=balance]").text(SOUL_BALANCE);
 		updateUserDroidies();
 		$("#userInfo span[name=wallet-type]").text(link.wallet);
 		$("#userInfo span[name=name]").text(NAME);
@@ -262,15 +262,31 @@ function clearGallery() {
 }
 
 function updateUserDroidies() {
-	let URL = RPC_URL + 'api/getTokenBalance?account=' + ADDRESS + '&tokenSymbol=' + TOKEN_SYMBOL + '&chainInput=main';
+	// let URL = RPC_URL + 'api/getTokenBalance?account=' + ADDRESS + '&tokenSymbol=' + TOKEN_SYMBOL + '&chainInput=main';
 	clearGallery();
+	// fetch(URL).then(response => {
+	// 	if(response.ok) {
+	// 		response.json().then(data => {
+	// 			if(data && data['amount'] > 0) {
+	// 				DROIDIES = data['ids'];
+	// 				getDroidiesInfo();
+	// 			}
+	// 		});
+	// 	} else {
+	// 		console.log(response);
+	// 	}
+	// }).catch(error => {
+	// 	console.log(error);
+	// });
+	let URL = 'https://droidies-api.herokuapp.com/balance?chain=' + CHAIN + '&address='  + ADDRESS;
 	fetch(URL).then(response => {
 		if(response.ok) {
 			response.json().then(data => {
-				if(data && data['amount'] > 0) {
-					DROIDIES = data['ids'];
+				if(data && !data.error && data['balance'] > 0) {
+					DROIDIES = data['droidies'];
 					getDroidiesInfo();
 				}
+				console.log(data);
 			});
 		} else {
 			console.log(response);
@@ -287,16 +303,34 @@ function getDroidiesInfo() {
 		$('#threeD_in_modal').attr('href', '../gallery/index.html?address='+ADDRESS);
 		$('#my-3').attr('href', '../gallery/index.html?address='+ADDRESS); $('#my-3').show();
 		DROIDIES.forEach(droidID => {
-			console.log("Fetching user droidy: " + droidID);
-			let URL = RPC_URL + 'api/getNFT?symbol=' + TOKEN_SYMBOL + '&IDtext=' + droidID;
+		// 	console.log("Fetching user droidy: " + droidID);
+		// 	let URL = RPC_URL + 'api/getNFT?symbol=' + TOKEN_SYMBOL + '&IDtext=' + droidID;
+		// 	fetch(URL).then(response => {
+		// 		if(response.ok) {
+		// 			response.json().then(data => {
+		// 				let rom = data['rom'];
+		// 				let droid_idx = (phantasmaJS.phantasmaJS.decodeVMObject(rom))['idx'];
+		// 				$('#droidies-owned .row').append('<div class="droidy-result col-4 mb-2"> <img src="'+IMAGES_URL+droid_idx+'.png" alt="Droidy" class="img-thumbnail figure-img"><figcaption class="figure-caption">Droidy #'+droid_idx+'</figcaption></div>');
+		// 			});
+		// 			$('#owned').show();
+		// 		} else {
+		// 			console.log(response);
+		// 		}
+		// 	}).catch(error => {
+		// 		console.log(error);
+		// 	});
+			let URL = 'https://droidies-api.herokuapp.com/getDroidy?chain=' + CHAIN + '&id='  + droidID;
 			fetch(URL).then(response => {
 				if(response.ok) {
 					response.json().then(data => {
-						let rom = data['rom'];
-						let droid_idx = (phantasmaJS.phantasmaJS.decodeVMObject(rom))['idx'];
-						$('#droidies-owned .row').append('<div class="droidy-result col-4 mb-2"> <img src="'+IMAGES_URL+droid_idx+'.png" alt="Droidy" class="img-thumbnail figure-img"><figcaption class="figure-caption">Droidy #'+droid_idx+'</figcaption></div>');
+						if(data && !data.error) {
+							let droid_idx = data['idx'];
+							$('#droidies-owned .row').append('<div class="droidy-result col-4 mb-2"> <img src="'+IMAGES_URL+droid_idx+'.png" alt="Droidy" class="img-thumbnail figure-img"><figcaption class="figure-caption">Droidy #'+droid_idx+'</figcaption></div>');
+						} else {
+							console.log(data);
+						}
 					});
-					$('#owned').show();
+				$('#owned').show();
 				} else {
 					console.log(response);
 				}
