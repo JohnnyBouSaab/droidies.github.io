@@ -278,8 +278,14 @@ function updateUserDroidies() {
 	// }).catch(error => {
 	// 	console.log(error);
 	// });
-	let URL = 'https://droidies-api.herokuapp.com/balance?chain=' + CHAIN + '&address='  + ADDRESS;
-	fetch(URL).then(response => {
+	let URL = DROIDIES_API_URL + '/balance?chain=' + CHAIN + '&address='  + ADDRESS;
+
+	const options = {
+	  method: 'GET',
+	  mode: 'no-cors'
+	};
+
+	fetch(URL, options).then(response => {
 		if(response.ok) {
 			response.json().then(data => {
 				if(data && !data.error && data['balance'] > 0) {
@@ -319,7 +325,7 @@ function getDroidiesInfo() {
 		// 	}).catch(error => {
 		// 		console.log(error);
 		// 	});
-			let URL = 'https://droidies-api.herokuapp.com/getDroidy?chain=' + CHAIN + '&id='  + droidID;
+			let URL = DROIDIES_API_URL + '/getDroidy?chain=' + CHAIN + '&id='  + droidID;
 			fetch(URL).then(response => {
 				if(response.ok) {
 					response.json().then(data => {
@@ -343,9 +349,9 @@ function getDroidiesInfo() {
 
 function updateSupplyView() {
 	let script_builder = new ScriptBuilder();
-  var script =  script_builder.callContract(CONTRACT_NAME, 'getCurrentSupply', []).endScript();
+  	var script = script_builder.callContract(CONTRACT_NAME, 'getCurrentSupply', []).endScript();
 	link.invokeRawScript('main' , script, CONTRACT_NAME, (script) => {
-	    let supply = phantasmaJS.phantasmaJS.decodeVMObject(script.result);
+	    let supply = phantasma.phantasmaJS.decodeVMObject(script.result);
 			let minted = TOTAL_SUPPLY - supply;
 			MAX_POSSIBLE_TRANSACTION = supply;
 			$('span[name=minted]').text(minted + '/' + TOTAL_SUPPLY);

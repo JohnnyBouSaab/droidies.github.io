@@ -5,6 +5,9 @@ const BASE_IMAGES_URL = 'https://ipfs.io/ipfs/QmPWtZvZyzrm9tZ5UyJH7aCL2DGfQ3PCTC
 // const BASE_INFO_URL = 'https://ipfs.io/ipfs/QmUA3rbhf8qLCvNsHjTa1u31EXHHuBqHT1zBb1XfvjUXKJ/';
 const BASE_INFO_URL = '../../rarities/'
 
+// API
+const DROIDIES_API_URL = 'https://droidiesapi.onrender.com';
+
 const IMAGES_URL = BASE_IMAGES_URL;
 const METADATA_URL = BASE_INFO_URL;
 const RARITY_DATA_URL = BASE_INFO_URL;
